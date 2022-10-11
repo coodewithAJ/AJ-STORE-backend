@@ -8,13 +8,17 @@ const cartRouter = require("./routes/cart")
 const orderRouter = require("./routes/order")
 const stripeRouter = require("./routes/stripe")
 const cookieParser = require('cookie-parser')
+const cors = require("cors")
+
 
 
 
 dotenv.config()
 const app = express();
+app.use(cors());
 app.use(cookieParser())
 app.use(express.json())
+
 
 app.use("/api/auth",authRouter)
 app.use("/api/products",productRouter)
